@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:layout_width="460dp"
+        android:layout_height="123dp"
+        android:layout_gravity="center"
+        android:src="@drawable/followmelogo_text"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="30dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:text="직원번호를 입력하세요"
+        android:textAlignment="center"
+        android:textColor="@color/gray"
+        android:textSize="15dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        android:layout_marginHorizontal="30dp"
+        android:textColor="#fdde45"/>
+
+    <EditText
+        android:id = "@+id/editText1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="30dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="password"
+        android:layout_marginHorizontal="30dp"
+        android:textColor="#fdde45"/>
+    <EditText
+        android:id = "@+id/editText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:inputType="textPassword"
+        android:layout_marginBottom="30dp"/>
+
+    <Button
+        android:id = "@+id/login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/button_login"
+        android:textColor="@color/white"
+
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No Account Create an Account"
+        android:textAlignment="center"
+        />
+
+
+
+</LinearLayout>
