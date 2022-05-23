@@ -29,7 +29,7 @@ public class FindingWay extends AppCompatActivity {
 
     Handler handler = new Handler();
     StringBuilder wayOutput = new StringBuilder(); //서버에서 받은 경로 저장
-    TextView textView = findViewById(R.id.textView);
+
 
 
 
@@ -52,33 +52,31 @@ public class FindingWay extends AppCompatActivity {
                     }
                 }
                 //출력되는 음성
-                tts.speak("목적지를 말씀해주세요", TextToSpeech.QUEUE_FLUSH, null);
+                tts.speak("목적지를 말씀해주세요", TextToSpeech.QUEUE_ADD, null);
             }
         });
 
-        //음성인식 출력
-
-        VoiceTask voiceTask = new VoiceTask();
-        voiceTask.execute();
-
-        //목적지 확인 음성출력
-        tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+        handler.postDelayed(new Runnable(){
             @Override
-            public void onInit(int i) {
-                if(i ==TextToSpeech.SUCCESS ){
-                    int result = tts.setLanguage(Locale.KOREAN);
+            public void run() {
+                //음성인식 출력
+                VoiceTask voiceTask = new VoiceTask();
+                voiceTask.execute();
 
-                    if(result== TextToSpeech.LANG_MISSING_DATA || result== TextToSpeech.LANG_NOT_SUPPORTED){
-                        Toast.makeText(FindingWay.this, "지원하지 않는 언어 입니다", Toast.LENGTH_SHORT);
-                    }
-                }
-                //출력되는 음성
-                tts.speak(getVoice+"로 목적지를 설정하여 안내합니다.", TextToSpeech.QUEUE_FLUSH, null);
             }
-        });
+        },3000); //1초 후 음성인식 실행
 
 
         //블루투스
+
+
+
+
+
+        //블루투스 연결 X
+        getBluetooth = "맥도날드";
+
+
 
 
 
@@ -111,6 +109,8 @@ public class FindingWay extends AppCompatActivity {
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 
 
@@ -179,9 +179,12 @@ public class FindingWay extends AppCompatActivity {
             //음성인식 입력받은 장소 저장
             getVoice=str;
 
+            tts.speak(getVoice+"로 길안내를 시작합니다.", TextToSpeech.QUEUE_ADD,null);
+
             //음성인식 test (화면출력)
-            TextView tv = findViewById(R.id.textView);
-            tv.setText(str); //화면 출력
+            TextView textView = findViewById(R.id.textView);
+
+            textView.setText(str); //화면 출력
         }
 
     }
@@ -216,6 +219,7 @@ public class FindingWay extends AppCompatActivity {
             println("예외 발생함: "+ ex.toString());
         }
         //응답 해서 wayOutput에 저장
+        println("응답-> " + wayOutput.toString());
 
 
     }
@@ -224,17 +228,11 @@ public class FindingWay extends AppCompatActivity {
         handler.post(new Runnable() {
             @Override
             public void run() {
+                TextView textView = findViewById(R.id.textView);
                 textView.append(data + "\n");
             }
         });
     }
-
-
-
-
-
-
-
 
 
 
