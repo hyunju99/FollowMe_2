@@ -11,11 +11,34 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="320dp"
+        android:layout_height="50dp"
         android:layout_weight="1" />
 
+    <android.widget.Button
+        android:id="@+id/btn_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="left"
+        android:layout_weight="1"
+        />
 
-    <Button
+    <android.widget.Button
+        android:id="@+id/btn_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="right" />
+
+    <ImageView
+        android:id="@+id/rotImage"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:src="@drawable/rotateimage"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <android.widget.Button
         android:id="@+id/emergencycall_btn"
         android:layout_width="match_parent"
         android:layout_height="320dp"
