@@ -38,7 +38,7 @@ public class FindingWay extends AppCompatActivity {
     String getBluetooth; //블루투스로 받은 데이터 (출발지)
 
     Handler handler = new Handler();
-    StringBuilder wayOutput = new StringBuilder(); //서버에서 받은 경로 저장
+    String wayOutput = new String(); //서버에서 받은 경로 저장
 
     private ImageView mImageView; //돌아가는 이미지
     private int nBefore = 0; //처음 각도 0
@@ -127,7 +127,6 @@ public class FindingWay extends AppCompatActivity {
 
 
     //음성인식
-
     public class VoiceTask extends AsyncTask<String, Integer, String> {
         String str = null;
         @Override
@@ -212,7 +211,7 @@ public class FindingWay extends AppCompatActivity {
                         break;
                     }
 
-                    wayOutput.append(line + "\n");
+                    wayOutput+=line + "\n";
                 }
                 reader.close();
                 conn.disconnect();
@@ -221,7 +220,8 @@ public class FindingWay extends AppCompatActivity {
             println("예외 발생함: "+ ex.toString());
         }
         //응답 해서 wayOutput에 저장
-        println("응답-> " + wayOutput.toString());
+        println("응답-> " + wayOutput
+        );
 
 
     }
